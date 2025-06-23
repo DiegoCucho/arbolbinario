@@ -1,4 +1,7 @@
 #include <iostream>
+#include <string>       // Librer√≠a para usar objetos string
+#include <cstdlib>      // Para funciones como atoi()
+#include <ctime>        // Para obtener la fecha actual
 using namespace std;
 
 struct Nodo {
@@ -20,7 +23,7 @@ Nodo* nuevoNodo(string nombre, string fecha, char genero) {
     return nodo;
 }
 
-// Insertar en el ·rbol por orden alfabÈtico del nombre
+// Insertar en el √°rbol por orden alfab√©tico del nombre
 Nodo* insertar(Nodo* raiz, string nombre, string fecha, char genero) {
     if (raiz == NULL) {
         return nuevoNodo(nombre, fecha, genero);
@@ -77,7 +80,7 @@ int main() {
     string nombre, fecha;
     char genero;
 
-    cout << "øCu·ntas personas deseas registrar?: ";
+    cout << "¬øCu√°ntas personas deseas registrar?: ";
     cin >> n;
     cin.ignore(); // Limpiar el buffer
 
@@ -86,7 +89,7 @@ int main() {
         getline(cin, nombre);
         cout << "Fecha de nacimiento (dd/mm/aaaa): ";
         getline(cin, fecha);
-        cout << "GÈnero (M/F): ";
+        cout << "G√©nero (M/F): ";
         cin >> genero;
         cin.ignore(); // Limpiar el buffer
 
@@ -102,14 +105,14 @@ int main() {
     cout << "\nRecorrido Postorden:\n";
     postorden(raiz);
 
-    // B˙squeda de una persona
+    // B√∫squeda de una persona
     cout << "\n\nBuscar persona por nombre: ";
     getline(cin, nombre);
     Nodo* encontrado = buscar(raiz, nombre);
     if (encontrado != NULL) {
-        cout << "Encontrado: " << encontrado->nombre << " - Nacido el " << encontrado->fechaNacimiento << ", GÈnero: " << encontrado->genero << "\n";
+        cout << "Encontrado: " << encontrado->nombre << " - Nacido el " << encontrado->fechaNacimiento << ", G√©nero: " << encontrado->genero << "\n";
     } else {
-        cout << "No se encontrÛ a " << nombre << ".\n";
+        cout << "No se encontr√≥ a " << nombre << ".\n";
     }
 
     return 0;
